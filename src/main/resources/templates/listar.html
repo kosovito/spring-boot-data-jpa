@@ -6,6 +6,7 @@
 </head>
 <body>
 	<h1 th:text="${titulo}"></h1>
+	<a th:href="@{/form}">Crear cliente</a>
 	<table>
 		<thead>
 			<tr>
@@ -14,6 +15,8 @@
 				<th>apellido</th>
 				<th>email</th>
 				<th>fecha</th>
+				<th>editar</th>
+				<th>eliminar</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,6 +26,8 @@
 				<td th:text="${cliente.apellido}"></td>
 				<td th:text="${cliente.email}"></td>
 				<td th:text="${cliente.createAt}"></td>
+				<td><a th:href="@{/form/} + ${cliente.id}" th:text="'editar'"></a></td>
+				<td><a th:href="@{/eliminar/} + ${cliente.id}" th:text="'eliminar'" onclick="return confirm('Estás seguro que quieres eliminar?');"></a></td>
 			</tr>
 		</tbody>
 	</table>

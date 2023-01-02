@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1>
+
+	<div th:object="${cliente}" th:remove="tag">
+		<ul th:if="${#fields.hasErrors('*')}">
+			<li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
+		</ul>
+	</div>
+	<form th:action="@{/form}" th:object="${cliente}" method="post">
+		<table>
+
+			<tr>
+				<td>Nombre</td>
+				<td><input type="text" th:field="*{nombre}" /></td>
+				<td><small th:if="${#fields.hasErrors('nombre')}"
+					th:errors="*{nombre}"></small></td>
+			</tr>
+			<tr>
+				<td>Apellido</td>
+				<td><input type="text" th:field="*{apellido}" /></td>
+				<td><small th:if="${#fields.hasErrors('apellido')}"
+					th:errors="*{apellido}"></small></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="text" th:field="*{email}" /></td>
+				<td><small th:if="${#fields.hasErrors('email')}"
+					th:errors="*{email}"></small></td>
+			</tr>
+			<tr>
+				<td>Fecha</td>
+				<td><input type="text" th:field="*{createAt}" /></td>
+				<td><small th:if="${#fields.hasErrors('createAt')}"
+					th:errors="*{createAt}"></small></td>
+			</tr>
+			<tr>
+				<td><input type="submit" val="Crear cliente" /></td>
+			</tr>
+		</table>
+<!-- 		<input type="hidden" th:field="*{id}" /> -->
+	</form>
+</body>
+</html>
