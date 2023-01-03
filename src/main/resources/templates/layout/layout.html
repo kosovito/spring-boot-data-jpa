@@ -1,0 +1,11 @@
+<head th:fragment="head">
+<meta charset="UTF-8">
+<title
+	th:text="'Spring Boot: MVC + Thymeleaf + Data JPA - ' + ${titulo}"></title>
+</head>
+<header th:fragment="header">
+	<div th:if="${success != null}" th:text="${success}"></div>
+	<div th:if="${success != error}" th:text="${error}"></div>
+	<div th:if="${success != warning}" th:text="${warning}"></div>
+	<div th:if="${success != info}" th:text="${info}"></div>
+</header>

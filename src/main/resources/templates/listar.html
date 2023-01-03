@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title th:text="${titulo}">Insert title here</title>
-</head>
+<head th:replace="layout/layout :: head"></head>
 <body>
 	<h1 th:text="${titulo}"></h1>
+	<header th:replace="layout/layout :: header"></header>
 	<a th:href="@{/form}">Crear cliente</a>
 	<table>
 		<thead>

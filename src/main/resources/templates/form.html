@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title th:text="${titulo}"></title>
-</head>
+<head th:replace="layout/layout :: head"></head>
 <body>
 	<h1 th:text="${titulo}"></h1>
-
+	<header th:replace="layout/layout :: header"></header>
 	<div th:object="${cliente}" th:remove="tag">
 		<ul th:if="${#fields.hasErrors('*')}">
 			<li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
@@ -43,7 +40,7 @@
 				<td><input type="submit" val="Crear cliente" /></td>
 			</tr>
 		</table>
-<!-- 		<input type="hidden" th:field="*{id}" /> -->
+		<!-- 		<input type="hidden" th:field="*{id}" /> -->
 	</form>
 </body>
 </html>
